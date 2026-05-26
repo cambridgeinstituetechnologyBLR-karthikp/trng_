@@ -1,47 +1,24 @@
-# Sample testbench for a Tiny Tapeout project
+# TRNG using Ring Oscillator
 
-This is a sample testbench for a Tiny Tapeout project. It uses [cocotb](https://docs.cocotb.org/en/stable/) to drive the DUT and check the outputs.
-See below to get started or for more information, check the [website](https://tinytapeout.com/hdl/testing/).
+## Project Description
+This project implements a True Random Number Generator (TRNG) using a ring oscillator in Verilog.
 
-## Setting up
+The ring oscillator generates high-frequency oscillations. These oscillations are sampled using a clock signal to generate random bits.
 
-1. Edit [Makefile](Makefile) and modify `PROJECT_SOURCES` to point to your Verilog files.
-2. Edit [tb.v](tb.v) and replace `tt_um_example` with your module name.
+The generated random bits are processed and sent to the Tiny Tapeout output pins.
 
-## How to run
+## Features
+- Ring oscillator based TRNG
+- Random bit generation
+- Tiny Tapeout compatible
+- Verilog implementation
+- Simulation tested using GTKWave
 
-To run the RTL simulation:
+## Files
+- `project.v` → Top module
+- `tb.v` → Testbench
+- `test.py` → Cocotb test
+- `info.md` → Project documentation
 
-```sh
-make -B
-```
-
-To run gatelevel simulation, first harden your project and copy `../runs/wokwi/results/final/verilog/gl/{your_module_name}.v` to `gate_level_netlist.v`.
-
-Then run:
-
-```sh
-make -B GATES=yes
-```
-
-If you wish to save the waveform in VCD format instead of FST format, edit tb.v to use `$dumpfile("tb.vcd");` and then run:
-
-```sh
-make -B FST=
-```
-
-This will generate `tb.vcd` instead of `tb.fst`.
-
-## How to view the waveform file
-
-Using GTKWave
-
-```sh
-gtkwave tb.fst tb.gtkw
-```
-
-Using Surfer
-
-```sh
-surfer tb.fst
-```
+## Author
+Karthik
