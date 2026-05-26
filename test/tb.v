@@ -12,7 +12,7 @@ wire [7:0] uio_oe;
 reg [7:0] ui_in = 0;
 reg [7:0] uio_in = 0;
 
-tt_um_example uut (
+tt_um_karthik_trng uut ( (
     .ui_in(ui_in),
     .uo_out(uo_out),
     .uio_in(uio_in),
