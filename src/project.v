@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2024 Your Name
- * SPDX-License-Identifier: Apache-2.0
- */
-
 `default_nettype none
 
 module tt_um_example (
@@ -16,18 +11,11 @@ module tt_um_example (
     input  wire       rst_n
 );
 
-wire random_bit;
+assign uo_out = ui_in;
 
-ring_oscillator ro_inst (
-    .ro_out(random_bit)
-);
+assign uio_out = 8'b00000000;
+assign uio_oe  = 8'b00000000;
 
-assign uo_out[0] = random_bit;
-assign uo_out[7:1] = 7'b0;
-
-assign uio_out = 8'b0;
-assign uio_oe  = 8'b0;
-
-wire _unused = &{ui_in, uio_in, ena, clk, rst_n, 1'b0};
+wire _unused = &{ena, clk, rst_n, uio_in, 1'b0};
 
 endmodule
